@@ -65,7 +65,7 @@ export default function ({
                 height: 220,
                 width: 220,
               }}
-              source={require("../../../assets/images/GETin-.png")}
+              source={require("../../../assets/images/login.png")}
             />
           </View>
           <View
@@ -84,7 +84,7 @@ export default function ({
               }}
               size="h3"
             >
-              Login To Rent A Car
+              Login To Get A Ride 
             </Text>
             <Text>Email</Text>
             <TextInput
@@ -92,7 +92,7 @@ export default function ({
               placeholder="Enter your email"
               value={email}
               autoCapitalize="none"
-              autoCompleteType="off"
+              autoCompleteType="on"
               autoCorrect={false}
               keyboardType="email-address"
               onChangeText={(text) => setEmail(text)}
@@ -110,7 +110,7 @@ export default function ({
               onChangeText={(text) => setPassword(text)}
             />
             <Button
-              text={loading ? "Loading" : "Continue"}
+              text={loading ? "Loading" : "Login"}
               onPress={() => {
                 login();
               }}
@@ -118,6 +118,7 @@ export default function ({
                 marginTop: 20,
               }}
               disabled={loading}
+              color="#453F3C"
             />
 
             <View

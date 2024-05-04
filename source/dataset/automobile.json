@@ -1,0 +1,79 @@
+{
+    "automobile": [
+      {
+        "id": 1,
+        "make": "Bentley",
+        "model": "GTC",
+        "type": "Sedan",
+        "transmission": "Automatic",
+        "price_per_day": 300,
+        "description": "Discover the BENTLEY Power and build quality are deeply impressive, and customization is nearly unlimited. A new-for-2021 10.9-inch infotainment system has done wonders for the interior, greatly improving the already excellent Bentayga experience.",
+        "properties": {
+          "motor_power_hp": 20,
+          "fuel_type": "Diesel",
+          "engine_capacity_cc": 1560,
+          "traction": "4x4"
+        }
+      },
+      {
+        "id": 2,
+        "make": "Porsche",
+        "model": "911",
+        "type": "Dakar",
+        "transmission": "Automatic",
+        "price_per_day": 500,
+        "description": "The 911 Dakar is a Marmite kind of car. It has no rear seats, it rides 50mm higher than normal and looks a bit gangly in the metal.",
+        "properties": {
+          "motor_power_hp": 40,
+          "fuel_type": "Petrol",
+          "engine_capacity_cc": 4730,
+          "traction": "Twin-Turbo"
+        }
+      },
+      {
+        "id": 3,
+        "make": "Dodge",
+        "model": "Charger",
+        "type": "Runner",
+        "transmission": "Automatic",
+        "price_per_day": 380,
+        "description": "Production of the Charger is coming to an end, but the horsepower will live on the streets forever. To celebrate the end of an era, Dodge will release six packages, inspired by some of the most head-turning options over the years.",
+        "properties": {
+          "motor_power_hp": 427,
+          "fuel_type": "Hybrid",
+          "engine_capacity_cc": 1400,
+          "traction": "RWD"
+        }
+      },
+      {
+        "id": 4,
+        "make": "Yamaha",
+        "model": "Metzeler",
+        "type": "Roadtec",
+        "transmission": "Manual",
+        "price_per_day": 150,
+        "description": "Fiat Fiorino is a compact MPV that offers a practical and economical solution for city driving and small cargo transport. Its compact dimensions make it ideal for navigating narrow streets.",
+        "properties": {
+          "motor_power_hp": 195,
+          "fuel_type": "Petrol",
+          "engine_capacity_cc": 1300,
+          "traction": "FWD"
+        }
+      },
+      {
+        "id": 5,
+        "make": "Michelin",
+        "model": "Power 6",
+        "type": "MPV",
+        "transmission": "Manual",
+        "price_per_day": 100,
+        "description": "A replacement for the popular Power 5, the new Power 6 picks up where its predecessor left off and improves the performance both in the dry and wet. Incorporating Michelin’s 2CT+ technology, the Power 6 uses separate compounds in the center and the edges for both longevity in a straight line and grip at the edges.",
+        "properties": {
+          "motor_power_hp": 195,
+          "fuel_type": "Petrol",
+          "engine_capacity_cc": 1300,
+          "traction": "FWD"
+        }
+      }
+    ]
+}

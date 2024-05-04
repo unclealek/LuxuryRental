@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Linking, StyleSheet, Image, SafeAreaView, ScrollView, TextInput,  TouchableOpacity } from "react-native";
-import { MainStackParamList } from "../types/navigation";
+import { MainPageParamList } from "../types/navigation";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { supabase } from "../initSupabase";
 import {
@@ -11,24 +11,25 @@ import {
   themeColor, 
 } from "react-native-rapi-ui";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import data from "../dataset/vehicles.json";
+import data from "../dataset/automobile.json";
 
 const magnifying_glass = require("../assets/icons/magnifying-glass.png");
-const image_v_1 = require("../assets/vehicles/v-1.png");
-const image_v_2 = require("../assets/vehicles/v-2.png");
-const image_v_3 = require("../assets/vehicles/v-3.png");
-const image_v_4 = require("../assets/vehicles/v-4.png");
-interface Props extends NativeStackScreenProps<MainStackParamList, "MainTabs"> {}
+const image_v_1 = require("../assets/automobile/car1.png");
+const image_v_2 = require("../assets/automobile/car2.png");
+const image_v_3 = require("../assets/automobile/car3.png");
+const image_v_4 = require("../assets/automobile/bike1.png");
+const image_v_5 = require("../assets/automobile/bike2.png");
+interface Props extends NativeStackScreenProps<MainPageParamList, "Tabs"> {}
 
 const Home: React.FC<Props> = ({ navigation }) => {
   const { setTheme, isDarkmode } = useTheme();
-  const [vehicles, setVehicles] = useState(data.vehicles);
-  const [filteredVehicles, setFilteredVehicles] = useState(data.vehicles);
+  const [automobile, setautomobile] = useState(data.automobile);
+  const [filteredautomobile, setFilteredautomobile] = useState(data.automobile);
 
-  const searchVehicles = (keyword: string) => {
+  const searchautomobile = (keyword: string) => {
     const lowercasedKeyword = keyword.toLowerCase();
-    const results = vehicles.filter(vehicle => vehicle.make.toLowerCase().includes(lowercasedKeyword));
-    setFilteredVehicles(results);
+    const results = automobile.filter(vehicle => vehicle.make.toLowerCase().includes(lowercasedKeyword));
+    setFilteredautomobile(results);
   };
 
   const getImageById = (id: number): any => {
@@ -38,18 +39,19 @@ const Home: React.FC<Props> = ({ navigation }) => {
       2: image_v_2,
       3: image_v_3,
       4: image_v_4,
+      5: image_v_5,
     };
     return imageMap[id] || null; // Return image path or null if ID not found
   };
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Layout>
-      <TopNav
+      
+      <TopNav style={styles.front}
         leftContent={
           <MaterialCommunityIcons
             name="logout"
             size={24}
-            color="black"
+            color="#BBC8CA"
             status="danger"
             text="Logout"
             onPress={async () => {
@@ -65,7 +67,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
             }}
           />
         }
-        middleContent="Home"
+        middleContent="Front Page"
         rightContent={
           <Ionicons
             name={isDarkmode ? "sunny" : "moon"}
@@ -80,7 +82,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
   <View style={styles.container}>
 
       <View style={styles.titleSection}>
-        <Text style={styles.title}>Rent a Car</Text>
+        <Text style={styles.title}>Luxury Ride </Text>
       </View>
 
       <View style={styles.searchSection}>
@@ -88,7 +90,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <TextInput
               style={styles.searchInput}
               placeholder="Search a Car"
-              onChangeText={(text) => searchVehicles(text)}
+              onChangeText={(text) => searchautomobile(text)}
           />
           <TouchableOpacity style={styles.searchIconArea}>
             <Image
@@ -102,22 +104,22 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
       <View style={styles.typesSection}>
         <Text style={styles.typesTextActive}>All</Text>
-        <Text style={styles.typesText}>Suv</Text>
+        <Text style={styles.typesText}>Bike</Text>
         <Text style={styles.typesText}>Sedan</Text>
-        <Text style={styles.typesText}>Mpv</Text>
         <Text style={styles.typesText}>Hatchback</Text>
+        <Text style={styles.typesText}>SporstCar</Text>
       </View>
 
       <View style={styles.listSection}>
-        <Text style={styles.headText}>Most Rented</Text>
+        <Text style={styles.headText}>Available</Text>
 
         <ScrollView style={styles.elementPallet}>
-          {filteredVehicles.map((vehicle) => (
+          {filteredautomobile.map((vehicle) => (
               <TouchableOpacity
                   style={styles.element}
                   key={vehicle.id}
                   activeOpacity={0.8}
-                  onPress={() => navigation.navigate('InfoScreen', { id: vehicle.id }) }
+                  onPress={() => navigation.navigate('CarInfo', { id: vehicle.id }) }
               >
                 <View style={styles.infoArea}>
                   <Text style={styles.infoTitle}>{vehicle.make} {vehicle.model}</Text>
@@ -138,7 +140,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
         </ScrollView>
       </View>
       </View>
-      </Layout>
+      
     </SafeAreaView>
     );
   };
@@ -149,28 +151,35 @@ const Home: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#e7e7e7",
+    backgroundColor: "#BBC8CA",
+    
   },
+  
   container: {
     flex: 1,
     paddingRight: 35,
     paddingLeft: 35,
+    backgroundColor: "#BBC8CA"
+    
   },
   headerSection: {
-    height: 70,
+    height: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    
+    
+    
   },
   menuIconStyle: {
-    width: 30,
+    
   },
   faceIconStyle: {
     width: 40,
   },
 
   titleSection: {
-    marginTop: 15,
+    marginTop: 10,
   },
   title: {
     fontSize: 32,
@@ -229,6 +238,7 @@ const styles = StyleSheet.create({
 
   listSection: {
     marginTop: 25,
+    
   },
   headText: {
     fontSize: 18,

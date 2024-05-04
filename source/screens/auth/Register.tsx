@@ -64,7 +64,7 @@ export default function ({
                 height: 220,
                 width: 220,
               }}
-              source={require("../../../assets/images/register.png")}
+              source={require("../../../assets/images/signup.png")}
             />
           </View>
           <View
@@ -83,7 +83,7 @@ export default function ({
                 padding: 30,
               }}
             >
-              Register
+              SignUp
             </Text>
             <Text>Email</Text>
             <TextInput
@@ -109,7 +109,7 @@ export default function ({
               onChangeText={(text) => setPassword(text)}
             />
             <Button
-              text={loading ? "Loading" : "Create an account"}
+              text={loading ? "Loading" : "SignUp"}
               onPress={() => {
                 register();
               }}
@@ -117,6 +117,7 @@ export default function ({
                 marginTop: 20,
               }}
               disabled={loading}
+              color="#453F3C"
             />
 
             <View

@@ -1,5 +1,5 @@
-export type MainStackParamList = {
-	MainTabs: undefined;
+export type MainPageParamList = {
+	Tabs: undefined;
 	SecondScreen: undefined;
 };
 
@@ -9,7 +9,7 @@ export type AuthStackParamList = {
 	ForgetPassword: undefined;
 };
 
-export type MainTabsParamList = {
+export type TabsParamList = {
 	Home: undefined;
 	Profile: undefined;
 	About: undefined;

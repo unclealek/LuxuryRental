@@ -7,23 +7,24 @@ import {
   TouchableOpacity,
   View, Linking
 } from "react-native";
-import data from "../dataset/vehicles.json";
+import data from "../dataset/automobile.json";
 import { Route, RouteProp } from "@react-navigation/native";
 
 const back = require("../assets/icons/left-arrow.png");
 const dots = require("../assets/icons/dots.png");
 // Type definition for route params
-type InfoScreenRouteProp = RouteProp<MainStackParamList, "Info">;
+type CarInfoRouteProp = RouteProp<MainPageParamList, "Info">;
 
-const image_v_1 = require("../assets/vehicles/v-1.png");
-const image_v_2 = require("../assets/vehicles/v-2.png");
-const image_v_3 = require("../assets/vehicles/v-3.png");
-const image_v_4 = require("../assets/vehicles/v-4.png");
+const image_v_1 = require("../assets/automobile/car1.png");
+const image_v_2 = require("../assets/automobile/car2.png");
+const image_v_3 = require("../assets/automobile/car3.png");
+const image_v_4 = require("../assets/automobile/bike1.png");
+const image_v_5 = require("../assets/automobile/bike2.png");
 
-const InfoScreen: React.FC<{ navigation: any; route: InfoScreenRouteProp; }> 
+const CarInfo: React.FC<{ navigation: any; route: CarInfoRouteProp; }> 
 = ({ navigation, route }) => {
 
-  const vehicle = data.vehicles.filter(
+  const vehicle = data.automobile.filter(
     (element) => element.id == route.params.id
   )[0];
   const getImage: Record<number, any> = {
@@ -31,6 +32,7 @@ const InfoScreen: React.FC<{ navigation: any; route: InfoScreenRouteProp; }>
     2: image_v_2,
     3: image_v_3,
     4: image_v_4,
+    5: image_v_5,
   };
   const getImageById = (id: number): any => {
     return getImage[id] || null; // Return image path or null if ID not found
@@ -133,7 +135,7 @@ const InfoScreen: React.FC<{ navigation: any; route: InfoScreenRouteProp; }>
   );
 };
 
-export default InfoScreen;
+export default CarInfo;
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -230,7 +232,7 @@ const styles = StyleSheet.create({
     // padding: 10,
     alignSelf: "center",
     width: 250,
-    backgroundColor: "black",
+    backgroundColor: "#453F3C",
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",

@@ -3,7 +3,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import Main from './MainStack';
+import Main from './MainPage';
 import Auth from './AuthStack';
 import Loading from '../screens/utils/Loading';
 

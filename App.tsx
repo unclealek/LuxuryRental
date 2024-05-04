@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ThemeProvider } from "react-native-rapi-ui";
-import Navigation from "./src/navigation";
-import { AuthProvider } from "./src/provider/AuthProvider";
+import Navigation from "./source/navigation";
+import { AuthProvider } from "./source/provider/AuthProvider";
 
 export default function App() {
   const images = [
